@@ -48,7 +48,6 @@ const useGoogle = __importStar(require("./routes/usegoogle"));
 const Logout = __importStar(require("./routes/logout"));
 const Beats = __importStar(require("./routes/api/beats"));
 const Users = __importStar(require("./routes/api/users"));
-// import credentails from "./middleware/credentials";
 (0, passportConfig_1.passportConfig)(passport_1.default);
 const PORT = process.env.DB_PORT;
 (0, dbConn_1.default)();

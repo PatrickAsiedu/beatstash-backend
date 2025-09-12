@@ -7,7 +7,7 @@ const allowedOrigins_1 = __importDefault(require("../config/allowedOrigins"));
 const credentials = (req, res, next) => {
     const origin = req.header("Origin");
     if (allowedOrigins_1.default.includes(origin)) {
-        res.header("Access-Control-Allow-Credentials");
+        res.header("Access-Control-Allow-Credentials", "true");
     }
     next();
 };

@@ -24,7 +24,7 @@ import * as Beats from "./routes/api/beats";
 import { trapPosts } from "./services/generateFakeData";
 import Post from "./model/Post";
 import * as Users from "./routes/api/users";
-// import credentails from "./middleware/credentials";
+import credentails from "./middleware/credentials";
 
 passportConfig(passport);
 

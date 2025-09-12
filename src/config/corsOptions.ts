@@ -1,22 +1,23 @@
 import allowedOrigins from "./allowedOrigins";
-import credentials from "../middleware/credentials";
+
 type origin = string | undefined;
 
 const CorsOptions = {
   origin: (origin: origin, callback: any) => {
-    if (origin !== undefined) {
-      if (allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    } else {
-      // callback(new Error("Not allowed by CORS")); //do not allow if theres no origin
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
+    } else {
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
     }
   },
   credentials: true,
-  // optionsSuccessStatus: 200,
+
+  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 };
 
 export default CorsOptions;
