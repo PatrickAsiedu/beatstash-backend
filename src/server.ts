@@ -34,9 +34,9 @@ connectDB();
 //middleware for logging
 app.use(morgan("dev"));
 
-// app.use(credentials);
+app.use(credentials);
 
-// app.use(cors(CorsOptions));
+app.use(cors(CorsOptions));
 
 // built-in middleware for json
 app.use(express.json());
